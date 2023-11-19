@@ -1,0 +1,428 @@
+<!doctype html>
+<style>
+  nav {
+    font:  italic 800 24px Open Sans, sans-serif;
+    display: block;
+    text-align: center;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav a {
+    display: block;
+    background: #1a1a1a;
+    color: #ff7357;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .nav {
+    vertical-align: top;
+    display: inline-block;
+    /*border: 1px solid #ff7357;*/
+    border-radius: 6px;
+  }
+
+  .nav li {
+    position: relative;
+  }
+
+  .nav > li {
+    float: left;
+  }
+
+  .nav > li > a {
+    margin-bottom: 1px;
+  }
+
+  .nav > li:hover,
+  .nav > li:hover > a {
+    background-color: #1a1a1a;
+  }
+
+  .nav li:hover > a {
+    color: #ff7357;
+  }
+
+  .nav > li:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+
+  .nav > li:first-child > a {
+    border-radius: 4px 0 0 0;
+  }
+
+  .nav > li:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+
+  .nav > li:last-child > a {
+    border-radius: 0 4px 0 0;
+  }
+
+  .nav li li a {
+    margin-top: 0px;
+  }
+
+  .nav li li a:hover {
+    background-color: black;
+  }
+
+  .nav li a:first-child:nth-last-child(2):before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 5px solid transparent;
+    top: 50%;
+    right: 5px;
+  }
+
+  .nav ul {
+    position: absolute;
+    white-space: nowrap;
+    z-index: 1;
+    left: -99999em;
+    border: 2px solid #ff7357;  
+    border-radius: 5px;
+  }
+
+  .nav > li:hover > ul {
+    left: auto;
+    padding-top: 5px;
+    min-width: 100%;
+  }
+
+  .nav > li li ul {
+    margin-left: 1px;
+    border-left: 3px solid #ff7357;
+  }
+
+  .nav > li li:hover > ul {
+    left: 100%;
+    top: -1px;
+  }
+
+  .nav > li > a:first-child:nth-last-child(2):before {
+    border-top-color: #ff7357;
+  }
+
+  .nav > li:hover > a:first-child:nth-last-child(2):before {
+    border: 5px solid transparent;
+    border-bottom-color: #ff7357;
+    margin-top: -5px;
+  }
+
+  .nav li li > a:first-child:nth-last-child(2):before {
+    border-left-color: #ff7357;
+    margin-top: -5px;
+  }
+
+  .nav li li:hover > a:first-child:nth-last-child(2):before {
+    border: 5px solid transparent;
+    border-right-color: #ff7357;
+    right: 10px;
+  }
+</style>
+
+<nav>
+  <ul class="nav">
+    <li><a href="/p/about.html">About</a></li>
+    <li><a href="#">Network Penetration Testing</a>
+      <ul>
+        <li><a href="#">Active Information Gathering</a>
+          <ul>
+            <li><a href="/p/port-scanning.html">Port Scanning</a></li>
+            <li><a href="/p/dns-enumeration-53.html">DNS Enumeration (53)</a></li>
+            <li><a href="/p/smb-enumeration-139445.html">SMB Enumeration (139,445)</a></li>
+            <li><a href="/p/nfs-enumeration-111.html">NFS Enumeration (111)</a></li>
+            <li><a href="/p/smtp-enumeration-25.html">SMTP Enumeration (25)</a></li>
+            <li><a href="/p/snmp-enumeration-161.html">SNMP Enumeration (161)</a></li>
+            <li><a href="/p/pop3-enumeration-110.html">POP3 Enumeration (110)</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Client-Side Attacks</a>
+          <ul>
+            <li><a href="/p/client-fingerprinting.html">Client Fingerprinting</a></li>
+            <li><a href="/p/leveraging-html-applications-ie.html">Leveraging HTML Applications (IE)</a></li>
+            <li><a href="/p/abusing-windows-library-files.html">Abusing Windows Library Files</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Locating Public Exploits</a>
+          <ul>
+            <li><a href="/p/online-exploit-resources.html">Online Exploit Resources</a></li>
+			<li><a href="/p/offline-exploit-resources.html">Offline Exploit Resources</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Fixing Exploits</a>
+          <ul>
+            <li><a href="/p/fixing-memory-corruption-exploits.html">Fixing Memory Corruption Exploits</a></li>
+            <li><a href="/p/fixing-web-exploits.html">Fixing Web Exploits</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Antivirus Evasion</a>
+          <ul>
+            <li><a href="/p/detection-methods.html">Detection Methods</a></li>
+          </ul>
+        </li>
+        <li><a href="#">File Transfers</a>
+          <ul>
+            <li><a href="/p/upgrade-to-interactive-shell.html">Upgrade To Interactive Shell</a></li>
+            <li><a href="/p/transferring-files-with-windows-hosts.html">Transfering Files With Windows Host</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Windows Privilege Escalation</a>
+          <ul>
+            <li><a href="/p/windows-enumeration.html">Windows Enumeration</a></li>
+          </ul>        </li>
+        <li><a href="#">Linux Privilege Escalation</a>
+          <ul>
+            <li><a href="/p/enumerating-linux.html">Enumerating Linux</a></li>
+            <li><a href="/p/exposed-confidential-information.html">Exposed Confidential Information</a></li> 
+          </ul>           
+        <li><a href="#">Port Redirection and Tunneling</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        </li>
+        <li><a href="#">Active Directory Attacks</a>
+          <ul>
+            <li><a href="/p/active-directory-theory.html">Active Directory Theory</a></li>
+          </ul>        </li>
+        <li><a href="#">The Metasploit Framework</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+      </li></ul>
+    </li>
+
+    <li><a href="#">Web Application Penetration Testing</a>
+      <ul>
+        <li><a href="#">Web Application Attacks</a>
+          <ul>
+            <li><a href="/p/web-application-enumeration.html">Web Application Enumeration</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Cross-Site Scripting</a>
+          <ul>
+            <li><a href="/p/understanding-xss-attacks.html">Understanding XSS Attacks</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Cross-Origin Attacks</a>
+          <ul>
+            <li><a href="/p/cross-origin-attacks-types-examples.html">Cross-Origin Attacks: Types & Examples </a></li>
+          </ul>        
+        </li>
+        <li><a href="#">SQL Injections</a>
+          <ul>
+            <li><a href="/p/sql-injection-types-prevention.html">SQL Injection Types & Prevention </a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Directory Traversal Attacks</a>
+          <ul>
+            <li><a href="/p/directory-traversal-attacks-explanation.html">Directory Traversal Attacks Explanation</a></li>
+            <li><a href="/p/relative-absolute-pathing.html">Relative & Absolute Pathing</a></li>
+	    <li><a href="/p/directory-traversal-vulnerabilities.html">Directory Traversal Vulnerabilities</a></li>
+	    <li><a href="/p/file-inclusion-vulnerabilities.html">File Inclusion Vulnerabilities</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Server-side Template Injection</a>
+          <ul>
+            <li><a href="/p/ssti-explanation.html">SSTI Explanation</a></li>
+			<li><a href="/p/twig.html">Twig</a></li>
+			<li><a href="/p/apache-freemarker.html">Apache Freemarker</a></li>
+			<li><a href="/p/pug.html">Pug</a></li>
+			<li><a href="/p/jinja.html">Jinja</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Command Injection</a>
+          <ul>
+            <li><a href="/p/command-injection-attacks-types.html">Command Injection Attacks: Types</a></li>
+            <li><a href="/p/os-command-injection.html">OS Command Injection</a></li>
+	    <li><a href="/p/dealing-with-common-protection.html">Dealing with Common Protection</a></li>
+	    <li><a href="/p/enumeration-exploitation.html">Enumeration & Exploitation</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Server-side Request Forgery</a>
+          <ul>
+			<li><a href="/p/understanding-ssrf-types-example.html">Understanding SSRF: Types & Example </a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Insecure Deserialization</a>
+          <ul>
+            <li><a href="/p/insecure-deserialization-vulnerabilities.html">Insecure Deserialization Vulnerabilities</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">XML External Entities</a>
+          <ul>
+            <li><a href="/p/understanding-xxe-attacks.html">Understanding XXE Attacks</a></li>
+          </ul>        
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">Wireless Penetration Testing</a>
+      <ul>
+        <li><a href="#">IEEE 802.11</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Wireless Networks</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Wi-Fi Encryption</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Linux Wireless Tools, Drivers, and Stacks</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Wireshark Essentials</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Frames and Network Interaction</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Aircrack-ng Essentials</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Cracking Authentication Hashes</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Attacking WPS Networks</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Rogue Access Points</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Attacking WPA Enterprise</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Attacking Captive Portals</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">bettercap Essentials</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Kismet Essentials</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Determining Chipset and Drivers</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Manual Network Connections</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+      </ul>
+    </li>
+    <li><a href="#">Tools</a>
+      <ul>
+        <li><a href="#">General</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">OSINT</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">DNS Enumeration</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Port Scanning</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">SMB Enumeration</a>
+          <ul>
+            <li><a href="/p/enum4linux.html">enum4linux</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">SNMP Enumeration</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">SMTP</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Web Application</a>
+          <ul>
+            <li><a href="/p/sqlmap.html">sqlmap</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Buffer Overflows</a>
+          <ul>
+            <li><a href="/p/gdb-peda.html">gdb-peda</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Antivirus Evasion</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Frameworks</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Password Attacks</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Port Redirection and Tunneling</a>
+          <ul>
+            <li><a href="/p/coming-soon.html">Coming Soon !</a></li>
+          </ul>        
+        </li>
+        <li><a href="#">Active Directory Attacks</a>
+          <ul>
+            <li><a href="/p/crackmapexec.html">crackmapexec</a></li>
+          </ul>        
+        </li>
+      </ul>
+    </li>
+    <li><a href="/index.html">Blog</a></li>
+  </ul>
+</nav></!doctype>
